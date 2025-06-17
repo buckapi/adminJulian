@@ -1,0 +1,29 @@
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-body">
+      <h2>Mi paleta de colores</h2>
+
+      <div class="color-circle-container" *ngFor="let color of global.colors">
+        <div class="color-circle" [style.background-color]="color.hex"></div>
+        <h6>{{ color.name }}</h6>
+      </div>
+      <div [hidden]="!sending">
+        enviando, por favor espere ...
+      </div>
+      
+      <!-- <h2 style="padding-top: 25%;">Agregar Color
+        <div class="color-picker-container" [hidden]="sending">
+          <input [(colorPicker)]="global.color" [style.background]="global.color" class="circular-color-picker"/>
+        </div>
+      </h2> -->
+     <!--  <div style="display: flex; align-items: center;">
+        <input type="text" style="margin-top: 10px; max-width: 50%;" [(ngModel)]="global.nuevoColor" class="form-control" placeholder="Nombre del color">
+        <span class="btn btn-default" style="margin-left: 10px;" (click)="global.guardarColor()">Guardar</span>
+      </div> -->
+      <div class="col-md-12" style="padding: 5%;">
+        <div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

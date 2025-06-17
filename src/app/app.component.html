@@ -1,0 +1,98 @@
+<div>
+  <!-- Preloader -->
+<div id="preloader" class="light">
+	<div class="outer">
+		<!-- Google Chrome -->
+		<div class="infinityChrome">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+
+		<!-- Safari and others -->
+		<div class="infinity">
+			<div>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+			</div>
+			<div>
+				<span></span>
+			</div>
+		</div>
+		<!-- Stuff -->
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo-outer">
+			<defs>
+				<filter id="goo">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+					<feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+					<feBlend in="SourceGraphic" in2="goo" />
+				</filter>
+			</defs>
+		</svg>
+	</div>
+</div>
+
+<!-- mobile header -->
+<header class="mobile-header-1 light">
+	<div class="container">
+		<!-- menu icon -->
+		<div class="menu-icon d-inline-flex mr-4">
+			<button>
+				<span></span>
+			</button>
+		</div>
+		<!-- logo image -->
+		<div (click)="goHome()"  class="site-logo" style="cursor:pointer;">
+			<a >
+				<img src="assets/images/logoBlue.webp" alt="Bolby" />
+			</a>
+		</div>
+	</div>
+</header>
+
+<!-- desktop header -->
+<header class="desktop-header-1 light d-flex align-items-start flex-column">
+
+	<!-- logo image -->
+	<div (click)="goHome()" class="site-logo" style="cursor:pointer;">
+		<a >
+			<img src="assets/images/logoBlue.webp" alt="Bolby" />
+		</a>
+	</div>
+
+	<!-- main menu -->
+	<nav>
+		<ul class="vertical-menu scrollspy">
+		
+			<li class="active"><a href="#home" (click)="global.setRoute('home')"><i class="icon-layers"></i>Inicio</a>	</li> 
+			<li><a href="#services" (click)="global.setRoute('properties')"><i class="icon icon-layers"></i>Servicios</a></li>
+      		<li><a href="#gallery" (click)="global.setRoute('products')"><i class="icon icon-layers"></i>Galeria de fotos</a></li>
+ 		</ul>
+	</nav>
+
+	<!-- site footer -->    
+	<div class="footer">
+		<!-- copyright text -->
+		<span class="copyright">© 2025 by Buckapi.com</span>
+    <!-- <span style="color:#FF4C60; cursor: pointer;"> Salir</span> -->
+	</div>
+
+</header>
+  <main class="content">
+    <section id="home" class="home  light align-items-center" [hidden]="virtualRouter.routerActive!=='login'">
+      <div class="container">
+      </div>
+  
+    </section>
+  <!-- <app-settings></app-settings> -->
+    <app-home></app-home> 
+  <app-properties ></app-properties>
+  <app-products ></app-products>
+  <app-gallery></app-gallery>
+  <!-- <app-orders></app-orders> -->
+<!--  <app-orders [hidden]="virtualRouter.routerActive!=='orders'"></app-orders> -->
+    <div class="spacer" data-height="96"></div>
+  </main>
+</div>

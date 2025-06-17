@@ -1,0 +1,120 @@
+.card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent; /* Borde inicial transparente */
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Sombra al pasar el mouse */
+    border: 2px solid #FF4C60; /* Borde de color al pasar el mouse */
+}
+/* Estilo inicial del elemento */
+.contact-info {
+    position: relative;
+  }
+  
+  .contact-info > div.floating-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .iconB {
+    color: #FF4C60;
+  }
+  
+  /* Estilo al pasar el mouse sobre el elemento */
+  .iconB:hover {
+    cursor: pointer;
+    color: black !important; /* Cambia 'blue' por el color que desees */
+    /* También puedes aplicar otros estilos además del color */
+    /* Por ejemplo: background-color, tamaño de fuente, etc. */
+  }
+
+
+
+
+
+
+/* Estilo para el campo de entrada de texto */
+.form-control {
+  /* Añade tus estilos personalizados aquí */
+  border: 1px solid #ced4da; /* Ejemplo de cómo cambiar el borde */
+  border-radius: 4px; /* Ejemplo de cómo agregar bordes redondeados */
+}
+
+/* Estilo para el campo de entrada de texto en enfoque */
+.form-control:focus {
+  /* Estilos cuando el campo está enfocado */
+  border-color: #80bdff; /* Ejemplo de cómo cambiar el color del borde cuando está enfocado */
+  outline: 0; /* Evita el borde de enfoque predeterminado */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Ejemplo de cómo agregar una sombra cuando está enfocado */
+}
+.btn-default {
+  color: #FFF;
+  background: #FF4C60;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.btn-default:hover {
+  color: #FFF;
+  -webkit-animation-name: button-push;
+  animation-name: button-push;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+.color-circle {
+  width: 30px; /* Diámetro de los círculos */
+  height: 30px; /* Diámetro de los círculos */
+  border-radius: 50%; /* Hacer los elementos círculos */
+  display: inline-block; /* Para que los círculos aparezcan en línea */
+  margin-right: 5px; /* Espacio entre los círculos */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre los círculos */
+  transition: border-color 0.3s; /* Transición suave para el cambio de color del borde */
+}
+
+.border-selected {
+  width: 36px; /* Diámetro de los círculos */
+  height: 36px;
+  border: 4px solid #FF4C60; /* Borde azul para círculos seleccionados */
+  background-image: url('../../../assets/images/check.png'); /* Cambia 'ruta_del_icono_de_check.png' por la ruta real de tu imagen de check */
+  background-size: 70%; /* Tamaño del icono */
+  background-position: center; /* Posición del icono en el centro */
+  background-repeat: no-repeat; /* Evitar que se repita la imagen */
+}
+.multiselect-dropdown .dropdown-btn .selected-item-container .selected-item {
+  background: #FF4C60 !important;
+}
+.selected-item {
+  background: #FF4C60 !important;
+}
+.delete-button {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: red;
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+}
+.delete-button:hover {
+  background-color: darkred;
+}
+.thumb{
+  top:5px;
+}

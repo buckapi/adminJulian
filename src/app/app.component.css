@@ -1,0 +1,93 @@
+.pointer{
+    cursor: pointer;
+}
+@keyframes loading {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* @keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+} */
+
+.float-right {
+  animation: loading 2s ease-in-out;
+}
+
+.progress-bar {
+  animation-name: loading;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+
+/* Añade esta clase con JavaScript después de que la página se haya cargado */
+.progress-bar.animate {
+  width: 100%;
+}
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* background-color: blue; */
+    background: linear-gradient(142.56deg, #913aff -1.68%, #622cfd 62.12%);
+    padding-bottom: 20px;
+    width: 100%;
+    z-index: 1000; /* Un valor alto para asegurarse de que se mantenga por encima de otros elementos */
+  }
+  .fixed-header-home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* background-color: blue; */
+    background: linear-gradient(142.56deg, #913aff -1.68%, #622cfd 62.12%);
+    padding-bottom: 20px;
+    width: 100%;
+    z-index: 1001; /* Un valor alto para asegurarse de que se mantenga por encima de otros elementos */
+  }
+  .btn-group {
+    display: flex; /* This will create a flex container */
+    align-items: center; /* This will vertically center the items in the container */
+  }
+  
+  .btn-group .btn {
+    margin-right: 8px; /* This adds some space between the buttons */
+  }
+  
+  /* Remove the margin from the last button */
+  .btn-group .btn:last-child {
+    margin-right: 0;
+  }
+  
+  .btn-default {
+    color: #FFF;
+    background: #FF4C60;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+  .btn-default:hover {
+    color: #FFF;
+    -webkit-animation-name: button-push;
+    animation-name: button-push;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+  .multiselect-dropdown .dropdown-btn .selected-item-container .selected-item {
+    background: #FF4C60 !important;
+  }
+  .selected-item {
+    background: #FF4C60 !important;
+  }

@@ -1,0 +1,85 @@
+
+  .circular-color-picker {
+    width: 100%; /* El ancho del input es igual al ancho del contenedor */
+    height: 100%; /* El alto del input es igual al alto del contenedor */
+    border-radius: 50%;
+  }
+  
+
+
+  .color-circle {
+    width: 30px; /* Diámetro de los círculos */
+    height: 30px;
+    border-radius: 50%; /* Hacer los elementos círculos */
+    display: inline-block;
+   
+    margin: 5px; /* Espacio entre círculos */
+    align-items: center; /* Para alinear el texto en el centro verticalmente */
+    justify-content: center; /* Para alinear el texto en el centro horizontalmente */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente del texto */
+    font-weight: bold; /* Peso de la fuente del texto */
+    
+  }
+  
+  h6 {
+    margin-top: 5px; /* Ajusta el margen superior del nombre del color */
+    text-align: center; /* Centra el texto */
+  }
+
+
+  
+  .color-circle-container {
+    display: inline-block; /* Hace que los contenedores de círculos se muestren en línea */
+    margin-right: 10px; /* Ajusta el margen entre cada contenedor */
+  }
+  
+
+
+  
+  .color-picker-container {
+    width: 30px; /* Ancho del contenedor */
+    height: 30px; /* Alto del contenedor */
+    display: inline-block; /* Mostrar el contenedor en línea */
+    vertical-align: top; /* Alinear en la parte superior del contenedor padre */
+  }
+  
+  
+
+/* Quita el borde y la sombra del modal */
+.modal-content {
+    border: none;
+    box-shadow: none;
+}
+
+/* Ajusta el margen del cuerpo del modal para eliminar el espacio entre el encabezado y el cuerpo */
+.modal-body {
+    margin: 10%;
+}
+
+/* Opcional: si deseas eliminar el margen entre el cuerpo y el pie de página */
+.modal-footer {
+    margin-top: 0;
+}
+.btn-default {
+  color: #FFF;
+  background: #FF4C60;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.btn-default:hover {
+  color: #FFF;
+  -webkit-animation-name: button-push;
+  animation-name: button-push;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}

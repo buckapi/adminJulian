@@ -1,0 +1,21 @@
+.card {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.101); /* Sombra al pasar el mouse */
+  border: 1px solid transparent; /* Borde inicial transparente */
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Sombra al pasar el mouse */
+  border: 1px solid #FF4C60; /* Borde de color al pasar el mouse */
+}
+.iconB {
+  color: #FF4C60;
+}
+
+/* Estilo al pasar el mouse sobre el elemento */
+.iconB:hover {
+  cursor: pointer;
+  color: black !important; /* Cambia 'blue' por el color que desees */
+  /* También puedes aplicar otros estilos además del color */
+  /* Por ejemplo: background-color, tamaño de fuente, etc. */
+}

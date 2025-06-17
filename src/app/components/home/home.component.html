@@ -1,0 +1,87 @@
+<section id="home" [hidden]="virtualRouter.routerActive!=='home'">
+    <div class="container">
+      <h2 class="section-title wow fadeInUp">Administrador de contenido de sitio web</h2>
+
+      <div class="spacer" data-height="60"></div>
+
+      <div class="row">
+
+        <div class="col-md-3">
+          <div class="text-center text-md-left">
+            <!-- avatar image -->
+            <img src="assets/images/logoBlue.webp" alt="Bolby" />
+          </div>
+          <div class="spacer d-md-none d-lg-none" data-height="30"></div>
+        </div>
+        <div class="col-md-9 triangle-left-md triangle-top-sm">
+          <div class="rounded bg-white shadow-dark padding-30">
+            <div class="row">
+              <div *ngIf="showContent" class="col-md-6">
+                <!-- about text -->
+                <p>Bienvenido al administrador de su sitio web</p>
+                <div class="mt-3">
+                  <!-- <a href="#" class="btn btn-default">Download CV</a> -->
+                </div>
+                <div class="spacer d-md-none d-lg-none" data-height="30"></div>
+              </div>
+              <div class="col-md-6" [hidden]="showContent ">
+                <div class="skill-item">
+                  <div class="skill-info clearfix">
+                    <h4 class="float-left mb-3 mt-0">Loading info ...</h4>
+                    <span class="float-right" #percentage>{{percentage.textContent}}</span>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+                    </div>
+                  </div>
+                  <div class="spacer" data-height="20"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- row end -->
+
+      <div class="spacer" data-height="70"></div>
+      <div class="row">
+
+     
+
+        <div class="col-md-3 col-sm-6">
+          <!-- fact item -->
+          <div class="fact-item">
+            <span class="icon icon-layers"></span>
+            <div class="details">
+              <h3 class="mb-0 mt-0 number"><em style="cursor:pointer;" (click)="global.setRoute('properties')">{{global.totales.totalProperties}}</em></h3>
+              <p class="mb-0">Servicios de Fotografia</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <!-- fact item -->
+          <div class="fact-item">
+            <span class="icon icon-layers"></span>
+            <div class="details">
+              <h3 class="mb-0 mt-0 number"><em style="cursor:pointer;" (click)="global.setRoute('products')">{{global.totales.totalProducts}}</em></h3>
+              <p class="mb-0">Galeria de fotos</p>
+            </div>
+          </div>
+        </div>
+       
+        <div class="col-md-3 col-sm-6">
+          <!-- fact item -->
+          <div class="fact-item">
+            <span class="icon icon-layers"></span>
+            <div class="details">
+              <h3 class="mb-0 mt-0 number"><em style="cursor:pointer;" (click)="global.setRoute('orders')">{{global.totales.totalOrders}}</em></h3>
+              <p class="mb-0">Solicitudes</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>

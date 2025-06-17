@@ -1,0 +1,14 @@
+.number em:hover {
+    color: red; /* Cambia el color al pasar el mouse por encima */
+}
+
+.card {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.101); /* Sombra al pasar el mouse */
+    border: 1px solid transparent; /* Borde inicial transparente */
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Sombra al pasar el mouse */
+    border: 1px solid #FF4C60; /* Borde de color al pasar el mouse */
+}

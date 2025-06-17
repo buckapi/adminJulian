@@ -1,0 +1,12 @@
+holis
+<div class="color-circle" *ngFor="let color of global.colors" [style.background-color]="color.hex">
+  {{ color.name }}
+</div>
+<div [hidden]="!sending">
+  enviando, por favor espere ...
+</div>
+<!-- <div class="color-picker-container" [hidden]="sending">
+  <input [(colorPicker)]="color" [style.background]="color" class="circular-color-picker"/>
+  <input type="text" [(ngModel)]="nuevoColor" placeholder="Nombre del color"> 
+  <button (click)="guardarColor()">Guardar</button>
+</div> -->

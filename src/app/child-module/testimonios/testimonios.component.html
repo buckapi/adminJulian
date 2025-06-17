@@ -1,0 +1,93 @@
+<section id="testimonios" [hidden]="virtualRouter.routerActive!=='testimonios'">
+    <div class="container">
+        <h2 class="section-title wow fadeInUp" [hidden]="editing">Testimonios
+            <span style="color: #FF4C60;" class="icon icon-plus iconB" (click)="edit()"></span>
+        </h2>
+        <h2 class="section-title wow fadeInUp" [hidden]="!editing">Nuevo Testimonio</h2>
+        <div class="spacer" data-height="60"></div>
+        <div class="row">
+            <div class="card col-md-5 timeline exp bg-white rounded shadow-dark padding-30 overflow-hidden"
+                [hidden]="editing" *ngFor="let testimonio of global.testimonios"
+                style="margin-bottom:5%; margin-left:2%">
+                <div class="float-right-corner"   [hidden]="isMouseOverCard && i !== mouseOverIndex" style="text-align: end;">
+                    <span style="font-weight: 1000; font-size: 15px; color: #5e4cff;">
+                        <button type="submit" name="submit" id="submit" value="Submit"
+                            class="btn btn-outline-dark btn-xs">
+                            <span class="icon icon-pencil"></span>
+                        </button>
+                    </span>
+                    <span style="font-weight: 1000; font-size: 15px; color: #FF4C60; padding-left: 5px;">
+                        <button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default btn-xs"
+                            (click)="beforeDelete(testimonio.id)">
+                            <span class="icon icon-trash"></span>
+                        </button>
+                    </span>
+                </div>
+                <div class="timeline-container wow fadeInUp">
+                    <div class="content">
+                        <img src="{{testimonio.images[0]}}" alt=""  style="border-radius: 25px;"/>
+                        <span class="time">{{testimonio.company}}</span>
+                        <h3 class="title">{{testimonio.name}}</h3>
+                        <p>{{testimonio.detail}}</p>
+                    </div>
+                </div>
+                <span class="line"></span>
+                
+            </div>
+            <div class="col-md-12" [hidden]="!editing">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="">
+                                <div class="">
+                                    <ngx-awesome-uploader 
+                                        [adapter]="adapter" 
+                                        [captions]="captions"
+                                        [showPreviewContainer]="false">
+                                        </ngx-awesome-uploader>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="">
+                                <div class="">
+                                    <div class="form-group">
+                                        <label for="event-name">Nombre de cliente</label>
+                                        <input class="form-control" placeholder="nombre" type="text"
+                                            [(ngModel)]="data.name" name="name" required
+                                            [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="">
+                                    <div class="form-group">
+                                        <label for="event-name">Empresa representante</label>
+                                        <input class="form-control" placeholder="Empresa o compañia" type="text"
+                                            [(ngModel)]="data.company" name="name" required
+                                            [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div class="">
+                                    <div class="form-group">
+                                        <label for="event-name">Opinión de cliente</label>
+                                        <input class="form-control" placeholder="Testimonio" type="text"
+                                            [(ngModel)]="data.detail" name="name" required
+                                            [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div div class="popup-box-actions medium void" style="text-align: end;">
+                        <button class="btn btn-default" id="closeButton" (click)="onSubmit()" style=" margin-right: 10px;">Guardar</button>
+                        <button class="btn btn-dark" id="closeButton"
+                            (click)="cancelarUpdate()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

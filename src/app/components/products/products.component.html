@@ -1,0 +1,266 @@
+<section id="products" [hidden]="virtualRouter.routerActive!=='products'">
+    <div class="container">
+        <h2 class="section-title wow fadeInUp" [hidden]="isEditing || global.addingProduct">Galeria de Fotografia
+            <span style="color: #FF4C60;" class="icon icon-plus iconB" (click)="add()"></span>
+        </h2>
+        <h2 class="section-title wow fadeInUp" [hidden]="!global.addingProduct">Agregar galeria de Fotos
+        </h2>
+        <div class="spacer" data-height="60" [hidden]="global.addingProduct || editing"></div>
+        <span> </span>
+        <ul class="portfolio-filter list-inline wow fadeInUp" [hidden]="global.editingProduct || global.addingProduct">
+            <li [hidden]="global.rubroSelectedBoolean" class="list-inline-item" style="color: #FF4C60;">Todos</li>
+            <li [hidden]="!global.rubroSelectedBoolean" class="list-inline-item" (click)="global.showAllRubros()">Todos
+            </li>
+            <li class="list-inline-item" data-filter="" *ngFor="let category of yeoman.categories; let i = index"
+                (click)="global.selectRubro(i)" [ngStyle]="{
+                'color': global.rubroIndex === i ? '#FF4C60' : 
+                (global.quantitiesCLientesSelected[i] === 0 ? 'rgb(202, 197, 197)' : 'inherit')
+            }">
+                {{category.name}}
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col-md-4 " [hidden]="global.editingProduct || global.addingProduct">
+                <div class="contact-info">
+                    <h3 class="wow fadeInUp" style="padding-top: 45px;">{{global.productSelected.name}}
+                    </h3>
+                    <div class="floating-content" [hidden]="global.productSelected.files[0]==undefined">
+                        <div style="text-align: right;">
+                            <span style="font-weight: 1000; font-size: 15px; color: #5e4cff;">
+                                <button type="submit" name="submit" id="submit" value="Submit"
+                                    class="btn btn-outline-dark btn-xs" (click)="edit(global.productSelected)">
+                                    <span class="icon icon-pencil"></span>
+                                </button>
+                            </span>
+                            <span style="font-weight: 1000; font-size: 15px; color: #FF4C60; padding-left: 5px;">
+                                <button type="submit" name="submit" id="submit" value="Submit"
+                                    class="btn btn-default btn-xs" (click)="beforeDelete()">
+                                    <span class="icon icon-trash"></span>
+                                </button>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="thumb">
+                        <img src="{{global.productSelected.files[0]}}" alt="" />
+                        <div class="mask"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row portfolio-wrapper col-md-8" [hidden]="global.editingProduct || global.addingProduct">
+                <div class="col-md-3 col-sm-6 grid-item " *ngFor="let client of global.clientesSelected; let i = index"
+                    style="cursor: pointer;" > 
+                    <a class="" (click)="preview(client)">
+                        <div class="portfolio-item rounded shadow-dark card">
+                            <div class="thumb">
+                                <img src="{{client.images[0]}}" alt="" />
+                            </div>
+                            <span>{{client.name}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="col-md-12 " [hidden]="!global.editingProduct && !global.addingProduct">
+                <div class="contact-info">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="">
+                                    <div class="">
+                                        <!-- <button (click)="compressFiles()">Upload and compress Image</button> -->
+                                        <!-- <img [src]="imgResultBeforeCompression" *ngIf="imgResultBeforeCompression" /> -->
+                                        <!-- <img [src]="imgResultAfterCompression" *ngIf="imgResultAfterCompression" /> -->
+                                 
+                                         <ngx-awesome-uploader [adapter]="adapter" [captions]="captions"
+                                            [showPreviewContainer]="false">
+                                        </ngx-awesome-uploader> 
+                                        <div style="display: ruby; margin-top: 20px;padding: 2%;">
+                                            <div class="thumb" *ngFor="let image of _butler.uploaderImages" style="margin-right: 5px; margin-bottom:10px;">
+                                                <img src="{{image}}"
+                                                    style="max-width: 150px; border-radius: 10px; border: 1px solid #ccc;">
+                                            </div>
+                                        </div>
+                                        <div  style="display: ruby; margin-top: 20px;padding: 2%;" [hidden]="!global.editingProduct">
+                                            <div class="thumb" *ngFor="let image of data.files" style="margin-right: 5px; margin-bottom:10px; position: relative;" class="image-container"
+                                                (mouseenter)="showDeleteButton = true" (mouseleave)="showDeleteButton = false">
+                                                <img src="{{image}}" style="max-width: 150px; border-radius: 10px; border: 1px solid #ccc;" class="image">
+                                                <button *ngIf="showDeleteButton" class="delete-button" (click)="deleteImage(image)" >
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                         
+                                  
+
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="event-name">Nombre del album</label>
+                                            <input class="form-control" placeholder="nombre del album" type="text"
+                                                [(ngModel)]="data.name" name="name" required
+                                                [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Descripción o inspiración</label>
+                                    <textarea class="form-control" placeholder="descripción"
+                                        [(ngModel)]="data.description" name="description del album" required
+                                        [ngModelOptions]="{standalone: true}"></textarea>
+                                </div>
+                                <!-- <div class="row">
+                                    <div class="col-md-4">
+                                    
+                                        <div class="form-group">
+                                            
+                                            <label for="model">Colección</label>
+                                            <input class="form-control" placeholder="modelo" type="text"
+                                                [(ngModel)]="data.collection" name="model" required
+                                                [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                       
+                                    </div> 
+                                    <div class="col-md-4">
+                                    
+                                        <div class="form-group">
+                                            
+                                            <label for="model">Ténica</label>
+                                            <input class="form-control" placeholder="Tecnica" type="text"
+                                                [(ngModel)]="data.technique" name="model" required
+                                                [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                       
+                                    </div> 
+                                    <div class="col-md-4">
+                                    
+                                        <div class="form-group">
+                                            
+                                            <label for="model">Materiales</label>
+                                            <input class="form-control" placeholder="Material" type="text"
+                                                [(ngModel)]="data.material" name="model" required
+                                                [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                       
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="stockMin">Peso</label>
+                                            <input  class="form-control" id="stockMin" placeholder="Kg" [(ngModel)]="data.weight" name="stockMin">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="stockMin">Dimensiones</label>
+                                            <input  class="form-control" id="stockMin" placeholder="ancho x alto" [(ngModel)]="data.dimensions" name="stockMin">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="year">Año de creación</label>
+                                            <input type="number"  class="form-control" placeholder="año" type="text"
+                                                [(ngModel)]="data.yearCreation" name="year" required
+                                                [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="event-price">Precio</label>
+                                            <input type="number"  class="form-control" placeholder="precio" type="number"
+                                                [(ngModel)]="data.price" name="price" required
+                                                [ngModelOptions]="{standalone: true}">
+                                        </div>
+                                    </div>
+                                     <div class="col-md-4">                               
+                                        <div class="form-group">
+                                            <label for="category">Categoría o estilo
+                                            <span *ngIf="showColors" style="color: #FF4C60; width: 20px; height: 20px; font-size: 20px; margin-left: 5px; float: right; margin-bottom: 6px;" class="icon icon-plus iconB" (click)="openAddcategory()"></span>
+
+                                            </label>
+                                            <ng-multiselect-dropdown
+                                            [ngModelOptions]="{standalone: true}"
+                                              [placeholder]="'Selecciona la categoría'"
+                                              [data]="yeoman.allcategory"
+                                              [(ngModel)]="data.categories"
+                                              [settings]="dropdownSettings">
+                                            </ng-multiselect-dropdown>
+                                          </div>                               
+                                    </div> 
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="category">Formato
+                                            <span *ngIf="showColors" style="color: #FF4C60; width: 20px; height: 20px; font-size: 20px; margin-left: 5px; float: right; margin-bottom: 6px;" class="icon icon-plus iconB" (click)="openAddbrand()"></span>
+                                        </label> 
+                                            <ng-multiselect-dropdown
+                                            [ngModelOptions]="{standalone: true}"
+                                              [placeholder]="'Selecciona '"
+                                              [data]="yeoman.brands"
+                                              [(ngModel)]="data.brand"
+                                              [settings]="dropdownSettings"
+                                              >
+                                            </ng-multiselect-dropdown>
+                                          </div>
+                                    </div>
+                                     <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="category">Formato
+                                            <span *ngIf="showColors" style="color: #FF4C60; width: 20px; height: 20px; font-size: 20px; margin-left: 5px; float: right; margin-bottom: 6px;" class="icon icon-plus iconB" (click)="openAddbrand()"></span>
+                                        </label> 
+                                            <ng-multiselect-dropdown
+                                            [ngModelOptions]="{standalone: true}"
+                                              [placeholder]="'Selecciona '"
+                                              [data]="yeoman.formats"
+                                              [(ngModel)]="data.formats"
+                                              [settings]="dropdownSettings"
+                                              >
+                                            </ng-multiselect-dropdown>
+                                          </div>
+                                    </div> --
+
+                                </div> -->
+                                
+                                <div class="row pb-20">
+                                    <div class="col-md-8">
+                                        <!-- <div class="form-group">
+                                            <label for="showColors" style="margin-left: 5px;">Colores
+                                                <span *ngIf="showColors" style="color: #FF4C60; width: 20px; height: 20px; font-size: 20px; margin-left: 5px; float: right;" class="icon icon-plus iconB" (click)="openModal()"></span>
+                                            
+                                            </label>
+                                        
+                                            <div class="form-group" *ngIf="showColors || isChecked()" >
+                                                <div style="float: left;">
+                                                    <div *ngFor="let color of global.colors" class="color-circle" [style.background-color]="color.hex" [class.border-selected]="isColorSelected(color)" (click)="toggleColor(color)"></div>
+                                                </div>
+                                            </div>
+                                            
+                                            
+
+                                        </div> -->
+                                    </div>
+                                   
+                                </div>
+                                
+                            </div>
+
+
+
+                        </div>
+                        <div class="popup-box-actions medium void" style="text-align: end; margin-top: 10px;">
+                            <button class="btn btn-outline-dark" id="closeButton" (click)="cancelarUpdate()"  style=" margin-right: 10px;">Cancelar</button>
+                            <button [hidden]="global.editingProduct || _butler.uploaderImages[0]==undefined" class="btn btn-default" id="closeButton" (click)="onSubmit()"
+                                style=" margin-right: 10px;">Guardar</button>
+                            <button [hidden]="global.addingProduct || data.files[0]==undefined" class="btn btn-default" id="closeButton" (click)="updateProduct()"
+                                style=" margin-right: 10px;">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

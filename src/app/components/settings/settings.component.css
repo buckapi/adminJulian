@@ -1,0 +1,24 @@
+.color-picker-container {
+    width: 50px; /* Ancho del contenedor */
+    height: 50px; /* Alto del contenedor */
+  }
+  
+  .circular-color-picker {
+    width: 100%; /* El ancho del input es igual al ancho del contenedor */
+    height: 100%; /* El alto del input es igual al alto del contenedor */
+    border-radius: 50%;
+  }
+  
+  .color-circle {
+    width: 100px; /* Ancho del círculo */
+    height: 100px; /* Alto del círculo */
+    border-radius: 50%; /* Hace que el elemento sea circular */
+    margin: 5px; /* Espacio entre círculos */
+    display: inline-flex; /* Para alinear el texto en el centro verticalmente */
+    align-items: center; /* Para alinear el texto en el centro verticalmente */
+    justify-content: center; /* Para alinear el texto en el centro horizontalmente */
+    color: white; /* Color del texto */
+    font-size: 16px; /* Tamaño de la fuente del texto */
+    font-weight: bold; /* Peso de la fuente del texto */
+  }
+  

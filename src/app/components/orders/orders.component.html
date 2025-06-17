@@ -1,0 +1,60 @@
+    <section id="orders" [hidden]="virtualRouter.routerActive!=='orders'">
+    <div class="container">
+        <h2 class="section-title wow fadeInUp">Solicitudes de reserva
+            <!-- <span style="color: #FF4C60;" class="icon icon-plus iconB"></span> -->
+        </h2>
+      
+        <div class="spacer" data-height="60"></div>
+        <span> </span>
+        <span> </span>
+        <ul class="portfolio-filter list-inline wow fadeInUp" >
+
+            <li [hidden]="global.rubroSelectedBoolean" class="list-inline-item" style="color: #FF4C60;">Todos</li>
+            <li [hidden]="!global.rubroSelectedBoolean" class="list-inline-item" (click)="global.showAllRubros()">Todos
+            </li>
+            <li class="list-inline-item" data-filter="" *ngFor="let status of global.info.orderStatus; let i = index"
+                (click)="global.selectRubro(i)" [ngStyle]="{
+                'color': global.rubroIndex === i ? '#FF4C60' : 
+                (global.quantitiesCLientesSelected[i] === 0 ? 'rgb(202, 197, 197)' : 'inherit')
+            }">
+                {{status.name}}
+            </li>
+        </ul>
+        <div class="col-md-8">
+            <!-- skill item -->
+            <div class="skill-item rounded bg-white shadow-dark " style="margin: 15px; padding: 20px; cursor: pointer;">
+                <div class="skill-info clearfix">
+                    <h4 class="float-left mb-0">Orden de compra <span style="color: #FF4C60;">#123</span></h4>
+                    <span class="float-right">Cliente: <span style="font-weight: bold;"> Juan Pérez</span></span>
+                </div>
+                <div class="order-details">
+                    <p>Monto: $500 - Estado: Pendiente</p>
+                </div>
+                <div class="spacer" data-height="20" style="height: 20px;"></div>
+            </div>
+
+            <!-- skill item -->
+            <div class="skill-item rounded bg-white shadow-dark " style="margin: 15px; padding: 20px; cursor: pointer;">
+                <div class="skill-info clearfix">
+                    <h4 class="float-left mb-0">Orden de compra <span style="color: #FF4C60;">#456</span></h4>
+                    <span class="float-right">Cliente: <span style="font-weight: bold;"> María López</span></span>
+                </div>
+                <div class="order-details">
+                    <p>Monto: $700 - Estado: En proceso</p>
+                </div>
+                <div class="spacer" data-height="20" style="height: 20px;"></div>
+            </div>
+
+            <!-- skill item -->
+            <div class="skill-item rounded bg-white shadow-dark " style="margin: 15px; padding: 20px; cursor: pointer;">
+                <div class="skill-info clearfix">
+                    <h4 class="float-left mb-0">Orden de compra <span style="color: #FF4C60;">#789</span></h4>
+                    <span class="float-right">Cliente: <span style="font-weight: bold;"> Roberto Gómez</span></span>
+                </div>
+                <div class="order-details">
+                    <p>Monto: $300 - Estado: Completada</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
