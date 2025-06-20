@@ -48,19 +48,19 @@
                 </div>
             </div>
             <div class="row portfolio-wrapper col-md-8" [hidden]="global.editingProduct || global.addingProduct">
-                <div class="col-md-3 col-sm-6 grid-item " *ngFor="let client of global.clientesSelected; let i = index"
+                <div class="col-md-3 col-sm-6 grid-item " *ngFor="let product of global.products; let i = index"
                     style="cursor: pointer;" > 
-                    <a class="" (click)="preview(client)">
+                    <a class="" (click)="preview(product)">
                         <div class="portfolio-item rounded shadow-dark card">
                             <div class="thumb">
-                                <img src="{{client.images[0]}}" alt="" />
+                                <img src="{{product.files[0]}}" alt="" />
                             </div>
-                            <span>{{client.name}}</span>
+                            <span>{{product.name}}</span>
                         </div>
                     </a>
                 </div>
             </div>
-            
+                        
             <div class="col-md-12 " [hidden]="!global.editingProduct && !global.addingProduct">
                 <div class="contact-info">
                     <form>
